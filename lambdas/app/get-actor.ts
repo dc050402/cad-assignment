@@ -7,7 +7,7 @@ import {
   parseId,
   tableName,
   toActor,
-  toRole
+  toRole,
 } from "../shared/db";
 import { response } from "../shared/http";
 import { logRequest } from "../shared/request-logger";
@@ -46,7 +46,7 @@ export const handler = async (
           TableName: tableName,
           KeyConditionExpression: "PK = :pk AND SK = :sk",
           ExpressionAttributeValues: {
-            ":pk" : movieKey(movieId),
+            ":pk": movieKey(movieId),
             ":sk": actorKey(actorId),
           },
         })
