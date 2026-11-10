@@ -3,8 +3,6 @@ import { TransactWriteCommand } from "@aws-sdk/lib-dynamodb";
 import { actorKey, ddb, movieKey, type Role, tableName } from "../shared/db";
 import { isResponse, parseJsonObject, response } from "../shared/http";
 import { logRequest } from "../shared/request-logger";
-import { Condition } from "aws-cdk-lib/aws-glue";
-import { ConditionCheck$ } from "@aws-sdk/client-dynamodb";
 
 export const handler = async (
   event: APIGatewayProxyEvent
@@ -102,12 +100,27 @@ export const handler = async (
   } catch (err) {
     console.error("DynamoDB error:", err);
 
-    if (
-      err instanceof Error &&
-      err.name === "TransactionCanceledException"
-    ) {
+    if (err instanceof Error && err.name === "TransactionCanceledException") {
+      const reasons = (
+        err as Error & {
+          CancellationReasons?: Array<{ Code?: string }>;
+        }
+      ).CancellationReasons;
+
+      if (reasons?.[0]?.Code === "ConditionalCheckFailed") {
+        return response(404, { message: "Movie not found" });
+      }
+
+      if (reasons?.[1]?.Code === "ConditionalCheckFailed") {
+        return response(404, { message: "Actor not found" });
+      }
+
+      if (reasons?.[2]?.Code === "ConditionalCheckFailed") {
+        return response(409, { message: "Role already exists" });
+      }
+
       return response(409, {
-        message: "Role could not be added. Check that the movie and actor exist and that the role does not already exist.",
+        message: "Transaction cancelled. Check the movie, actor and role.",
       });
     }
 
