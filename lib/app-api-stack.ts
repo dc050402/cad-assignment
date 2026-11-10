@@ -87,6 +87,24 @@ export class AppApiStack extends cdk.Stack {
       },
     });
 
+    const adminApiKey = api.addApiKey('AdminApiKey', {
+      apiKeyName: 'MovieCastAdminKey',
+      description: 'Administrator API key for adding movie roles',
+    });
+
+    const usagePlan = api.addUsagePlan('AdminUsagePlan', {
+      name: 'AdminUsagePlan',
+      throttle: {
+        rateLimit: 10, 
+        burstLimit: 20,
+      },
+    });
+
+    usagePlan.addApiKey(adminApiKey);
+    usagePlan.addApiStage({
+      stage: api.deploymentStage,
+    });
+
     const userAuth: apig.MethodOptions = {
       authorizer: userAuthorizer,
       authorizationType: apig.AuthorizationType.CUSTOM,
@@ -95,7 +113,13 @@ export class AppApiStack extends cdk.Stack {
     const moviesResource = api.root.addResource('movies');
 
     const movieRolesResource = moviesResource.addResource('{movieID}').addResource('roles');
-    movieRolesResource.addMethod('GET', new apig.LambdaIntegration(getMovieRolesFn) );
+    movieRolesResource.addMethod(
+      'GET',
+      new apig.LambdaIntegration(getMovieRolesFn),
+      userAuth,
+    );
+
+    table.grantReadWriteData(addMovieRoleFn);
 
     api.root
       .addResource('actors')
