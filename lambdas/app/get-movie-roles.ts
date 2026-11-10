@@ -1,5 +1,5 @@
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
-import { GetCommand, QueryCommand } from "@aws-sdk/lib-dynamodb";
+import { QueryCommand } from "@aws-sdk/lib-dynamodb";
 import {
   ddb,
   isRoleItem,
@@ -30,13 +30,30 @@ export const handler = async (
       })
     );
 
-    const resultItems = queryResult.Items ?? [];
-    return response(200, { data: resultItems.filter(isRoleItem).map(toRole) });
+    const roles = (queryResult.Items ?? []).filter(isRoleItem).map(toRole);
+
+    const actorParam = event.queryStringParameters?.actor;
+
+    if (actorParam !== undefined) {
+      const actorId = parseId(actorParam);
+
+      if (actorId === undefined) {
+        return response(400, {
+          message: "actor must be a positive integer",
+        });
+      }
+
+      const filteredRoles = roles.filter( (role) => role.actorId === actorId);
+
+      return response(200, { data: filteredRoles});
+    }
+
+    return response(200, {data: roles});
+
   } catch (err) {
     console.error("DynamoDB error:", err);
     return response(500, {
       message: "Internal server error",
-      error: err,
     });
   }
 };
