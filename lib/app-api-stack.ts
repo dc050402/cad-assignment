@@ -113,20 +113,23 @@ export class AppApiStack extends cdk.Stack {
     const moviesResource = api.root.addResource('movies');
 
     const movieRolesResource = moviesResource.addResource('{movieID}').addResource('roles');
+
     movieRolesResource.addMethod(
       'GET',
       new apig.LambdaIntegration(getMovieRolesFn),
       userAuth,
     );
 
-    movieRolesResource.addMethod(
+    // POST /movies/roles - administrator only
+    const postMovieRolesResource = moviesResource.addResource('roles');
+
+    postMovieRolesResource.addMethod(
       'POST',
       new apig.LambdaIntegration(addMovieRoleFn),
       {
         apiKeyRequired: true,
       },
     );
-
 
     table.grantReadWriteData(addMovieRoleFn);
 
