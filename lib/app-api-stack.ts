@@ -116,10 +116,17 @@ export class AppApiStack extends cdk.Stack {
     movieRolesResource.addMethod(
       'GET',
       new apig.LambdaIntegration(getMovieRolesFn),
+      userAuth,
+    );
+
+    movieRolesResource.addMethod(
+      'POST',
+      new apig.LambdaIntegration(addMovieRoleFn),
       {
         apiKeyRequired: true,
       },
     );
+
 
     table.grantReadWriteData(addMovieRoleFn);
 

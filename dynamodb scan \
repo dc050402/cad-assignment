@@ -1,0 +1,307 @@
+{
+    "Items": [
+        {
+            "movieId": {
+                "N": "1234"
+            },
+            "roleDescription": {
+                "S": "Serves as the film's narrator, deuteragonist, and emotional anchor. As a seasoned inmate serving a life sentence, Red is the \"man who can get things,\" a contraband smuggler who becomes the best friend and protector of Andy Dufresne."
+            },
+            "actorId": {
+                "N": "4321"
+            },
+            "PK": {
+                "S": "m#1234"
+            },
+            "roleName": {
+                "S": "Ellis Boyd \"Red\" Redding"
+            },
+            "SK": {
+                "S": "a#4321"
+            }
+        },
+        {
+            "movieId": {
+                "N": "1234"
+            },
+            "roleDescription": {
+                "S": "A banker wrongly convicted of murdering his wife and her lover, who spends nearly two decades in Shawshank State Penitentiary."
+            },
+            "actorId": {
+                "N": "4322"
+            },
+            "PK": {
+                "S": "m#1234"
+            },
+            "roleName": {
+                "S": "Andy Dufresne"
+            },
+            "SK": {
+                "S": "a#4322"
+            }
+        },
+        {
+            "movieId": {
+                "N": "1234"
+            },
+            "PK": {
+                "S": "m#1234"
+            },
+            "releaseDate": {
+                "S": "05-03-1995"
+            },
+            "overview": {
+                "S": "A banker convicted of uxoricide forms a friendship over a quarter century with a hardened convict, while maintaining his innocence and trying to remain hopeful through simple compassion."
+            },
+            "title": {
+                "S": "The Shawshank Redemption"
+            },
+            "SK": {
+                "S": "m#1234"
+            }
+        },
+        {
+            "movieId": {
+                "N": "1236"
+            },
+            "roleDescription": {
+                "S": "A weary veteran detective in his last week before retirement."
+            },
+            "actorId": {
+                "N": "4321"
+            },
+            "PK": {
+                "S": "m#1236"
+            },
+            "roleName": {
+                "S": "Detective Lt. William Somerset"
+            },
+            "SK": {
+                "S": "a#4321"
+            }
+        },
+        {
+            "movieId": {
+                "N": "1236"
+            },
+            "roleDescription": {
+                "S": "An impulsive young detective newly transferred to the city."
+            },
+            "actorId": {
+                "N": "4325"
+            },
+            "PK": {
+                "S": "m#1236"
+            },
+            "roleName": {
+                "S": "Detective David Mills"
+            },
+            "SK": {
+                "S": "a#4325"
+            }
+        },
+        {
+            "movieId": {
+                "N": "1236"
+            },
+            "PK": {
+                "S": "m#1236"
+            },
+            "releaseDate": {
+                "S": "22-09-1995"
+            },
+            "overview": {
+                "S": "Two homicide detectives are on a desperate hunt for a serial killer whose crimes are based on the seven deadly sins."
+            },
+            "title": {
+                "S": "Se7en"
+            },
+            "SK": {
+                "S": "m#1236"
+            }
+        },
+        {
+            "dateOfBirth": {
+                "S": "04-04-1979"
+            },
+            "actorId": {
+                "N": "4324"
+            },
+            "PK": {
+                "S": "a#4324"
+            },
+            "name": {
+                "S": "Heath Ledger"
+            },
+            "bio": {
+                "S": "An Australian actor and music video director, awarded a posthumous Academy Award for The Dark Knight."
+            },
+            "SK": {
+                "S": "a#4324"
+            }
+        },
+        {
+            "dateOfBirth": {
+                "S": "16-10-1958"
+            },
+            "actorId": {
+                "N": "4322"
+            },
+            "PK": {
+                "S": "a#4322"
+            },
+            "name": {
+                "S": "Tim Robbins"
+            },
+            "bio": {
+                "S": "An American actor, screenwriter, director and producer, and winner of an Academy Award for Mystic River."
+            },
+            "SK": {
+                "S": "a#4322"
+            }
+        },
+        {
+            "dateOfBirth": {
+                "S": "01-06-1937"
+            },
+            "actorId": {
+                "N": "4321"
+            },
+            "PK": {
+                "S": "a#4321"
+            },
+            "name": {
+                "S": "Morgan Freeman"
+            },
+            "bio": {
+                "S": "An American actor, producer, and narrator. In a career spanning six decades, he has received numerous accolades, including an Academy Award and a Golden Globe Award."
+            },
+            "SK": {
+                "S": "a#4321"
+            }
+        },
+        {
+            "movieId": {
+                "N": "1235"
+            },
+            "roleDescription": {
+                "S": "CEO of Wayne Enterprises, who supplies Batman with his equipment and serves as his moral compass."
+            },
+            "actorId": {
+                "N": "4321"
+            },
+            "PK": {
+                "S": "m#1235"
+            },
+            "roleName": {
+                "S": "Lucius Fox"
+            },
+            "SK": {
+                "S": "a#4321"
+            }
+        },
+        {
+            "movieId": {
+                "N": "1235"
+            },
+            "roleDescription": {
+                "S": "Gotham's vigilante protector, who faces the Joker while questioning the cost of his crusade."
+            },
+            "actorId": {
+                "N": "4323"
+            },
+            "PK": {
+                "S": "m#1235"
+            },
+            "roleName": {
+                "S": "Bruce Wayne / Batman"
+            },
+            "SK": {
+                "S": "a#4323"
+            }
+        },
+        {
+            "movieId": {
+                "N": "1235"
+            },
+            "roleDescription": {
+                "S": "A nihilistic criminal mastermind who sets out to plunge Gotham into anarchy."
+            },
+            "actorId": {
+                "N": "4324"
+            },
+            "PK": {
+                "S": "m#1235"
+            },
+            "roleName": {
+                "S": "The Joker"
+            },
+            "SK": {
+                "S": "a#4324"
+            }
+        },
+        {
+            "movieId": {
+                "N": "1235"
+            },
+            "PK": {
+                "S": "m#1235"
+            },
+            "releaseDate": {
+                "S": "18-07-2008"
+            },
+            "overview": {
+                "S": "Batman raises the stakes in his war on crime, but soon finds himself prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker."
+            },
+            "title": {
+                "S": "The Dark Knight"
+            },
+            "SK": {
+                "S": "m#1235"
+            }
+        },
+        {
+            "dateOfBirth": {
+                "S": "30-01-1974"
+            },
+            "actorId": {
+                "N": "4323"
+            },
+            "PK": {
+                "S": "a#4323"
+            },
+            "name": {
+                "S": "Christian Bale"
+            },
+            "bio": {
+                "S": "An English actor known for his intense method acting and physical transformations for his roles."
+            },
+            "SK": {
+                "S": "a#4323"
+            }
+        },
+        {
+            "dateOfBirth": {
+                "S": "18-12-1963"
+            },
+            "actorId": {
+                "N": "4325"
+            },
+            "PK": {
+                "S": "a#4325"
+            },
+            "name": {
+                "S": "Brad Pitt"
+            },
+            "bio": {
+                "S": "An American actor and film producer, and the recipient of two Academy Awards."
+            },
+            "SK": {
+                "S": "a#4325"
+            }
+        }
+    ],
+    "Count": 15,
+    "ScannedCount": 15,
+    "ConsumedCapacity": null
+}
